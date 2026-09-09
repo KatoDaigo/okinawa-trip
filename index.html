@@ -81,7 +81,7 @@
     100%{ transform:translateX(220%) skewX(-14deg); opacity:0; }
   }
 
-  .page-content{ position:relative; overflow:hidden; padding:112px clamp(20px,5vw,56px) 40px; max-width:1040px; margin:0 auto; }
+  .page-content{ position:relative; overflow:hidden; padding:112px clamp(20px,5vw,56px) 40px; max-width:1040px; margin:0 auto; min-height:100svh; display:flex; flex-direction:column; }
   .page-content::after{
     content:""; position:absolute; top:-10%; left:0; width:26%; height:130%;
     background:linear-gradient(100deg, transparent, rgba(255,255,255,.5) 48%, rgba(255,255,255,.7) 52%, transparent);
@@ -270,14 +270,15 @@
     .countdown-num{ animation: cdPulse 3.2s ease-in-out infinite; }
   }
   @keyframes cdPulse{ 0%,100%{ opacity:1; } 50%{ opacity:.72; } }
-  .home-lead{ font-family:'Shippori Mincho B1',serif; font-size:clamp(1rem,2.1vw,1.5rem); line-height:1.8; white-space:nowrap; font-weight:600; }
-  @media (max-width:760px){ .home-lead{ white-space:normal; font-size:clamp(1.1rem,4vw,1.4rem); } }
+  .home-lead{ font-family:'Shippori Mincho B1',serif; font-size:clamp(1rem,2.1vw,1.5rem); line-height:1.8; white-space:nowrap; font-weight:600; overflow-wrap:break-word; }
+  @media (max-width:760px){ .home-lead{ white-space:normal; font-size:clamp(1.05rem,4.4vw,1.4rem); line-height:1.65; } }
   .home-lead em{ font-style:normal; color:var(--rust); }
   .home-meta{
     margin-top:26px; display:flex; flex-wrap:wrap; gap:14px; align-items:center;
     font-family:'JetBrains Mono',monospace; font-size:.82rem; color:var(--ink-soft);
     padding:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
   }
+  @media (max-width:760px){ .home-meta{ margin-top:18px; font-size:.88rem; } }
   .home-meta .sep{ color:var(--ink-faint); }
   .home-body{ margin-top:24px; color:var(--ink-soft); font-size:.94rem; line-height:2; max-width:58ch; }
 
@@ -448,12 +449,31 @@
   .rentacar-note{ margin-top:16px; font-size:.82rem; color:var(--ink-faint); }
 
   /* ---------- Page nav (prev/next) ---------- */
-  .page-nav{ margin-top:clamp(50px,8vw,80px); display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:24px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:.8rem; }
+  .page-nav{ margin-top:auto; padding-top:24px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:.8rem; }
   .page-nav button{ background:none; border:none; cursor:pointer; color:var(--ink-soft); padding:6px 0; transition:color .2s ease; }
   .page-nav button:hover{ color:var(--ink); }
   .page-nav .page-index{ color:var(--ink-faint); }
 
   .credit{ margin-top:60px; padding-top:20px; border-top:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--ink-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  #page-home .credit{ margin-top:auto; }
+
+  /* ================= Mobile readability pass ================= */
+  @media (max-width:760px){
+    html{ font-size:112%; }
+    .tl-detail-btn{ font-size:.78rem; padding:8px 14px; }
+    .tl-detail-row .k{ font-size:.72rem; }
+    .rentacar-car-meta{ font-size:.76rem; }
+    .rentacar-car-row .k{ font-size:.72rem; }
+    .rentacar-meta{ font-size:.86rem; }
+    .spot-sub-label{ font-size:.7rem; }
+    .tag-tentative{ font-size:.68rem; padding:2px 8px; }
+    .day-tab{ font-size:.86rem; }
+    .info-row{ font-size:.92rem; }
+    .pack-item{ font-size:.94rem; padding:11px 2px; }
+    .page-nav{ font-size:.86rem; }
+    .credit{ font-size:.72rem; }
+    .nav-card .desc{ font-size:.86rem; }
+  }
 </style>
 
 <!-- ================= persistent chrome ================= -->
